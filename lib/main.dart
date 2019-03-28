@@ -1,6 +1,15 @@
+import 'src/bottom_nav_bar_bloc/bottom-navbar-app.dart';
 import 'package:flutter/material.dart';
-import 'bottom-navbar-app.dart';
 
-main() => runApp(MaterialApp(
-      home: BottomNavBarApp(),
-    ));
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return (MaterialApp(
+        home: BottomNavBarApp(),
+      )
+    );
+  }
+}

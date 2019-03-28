@@ -24,7 +24,7 @@ class _BottomNavBarAppState extends State<BottomNavBarApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom NavBar Navigation'),
+        title: Text('Paisa App'),
       ),
       body: StreamBuilder<NavBarItem>(
         stream: _bottomNavBarBloc.itemStream,
@@ -33,10 +33,10 @@ class _BottomNavBarAppState extends State<BottomNavBarApp> {
           switch (snapshot.data) {
             case NavBarItem.HOME:
               return _homeArea();
-            case NavBarItem.ALERT:
-              return _alertArea();
-            case NavBarItem.SETTINGS:
-              return _settingsArea();
+            case NavBarItem.WALLET:
+              return _walletArea();
+            case NavBarItem.PROFILE:
+              return _profileArea();
           }
         },
       ),
@@ -50,16 +50,16 @@ class _BottomNavBarAppState extends State<BottomNavBarApp> {
             onTap: _bottomNavBarBloc.pickItem,
             items: [
               BottomNavigationBarItem(
-                title: Text('Home'),
+                title: Text('HOME'),
                 icon: Icon(Icons.home),
               ),
               BottomNavigationBarItem(
-                title: Text('Notifications'),
-                icon: Icon(Icons.notifications),
+                title: Text('WALLET'),
+                icon: Icon(Icons.account_balance_wallet),
               ),
               BottomNavigationBarItem(
-                title: Text('Settings'),
-                icon: Icon(Icons.settings),
+                title: Text('PROFILE'),
+                icon: Icon(Icons.account_circle),
               ),
             ],
           );
@@ -81,10 +81,10 @@ class _BottomNavBarAppState extends State<BottomNavBarApp> {
     );
   }
 
-  Widget _alertArea() {
+  Widget _walletArea() {
     return Center(
       child: Text(
-        'Notifications Screen',
+        'Wallet Screen',
         style: TextStyle(
           fontWeight: FontWeight.w700,
           color: Colors.red,
@@ -94,10 +94,10 @@ class _BottomNavBarAppState extends State<BottomNavBarApp> {
     );
   }
 
-  Widget _settingsArea() {
+  Widget _profileArea() {
     return Center(
       child: Text(
-        'Settings Screen',
+        'Profile Screen',
         style: TextStyle(
           fontWeight: FontWeight.w700,
           color: Colors.blue,
